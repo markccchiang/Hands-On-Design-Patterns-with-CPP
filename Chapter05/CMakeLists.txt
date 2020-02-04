@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 14)
 enable_testing()
 
 find_package(GTest REQUIRED)
+find_package(benchmark REQUIRED)
 
 include_directories(${GTEST_INCLUDE_DIRS})
 
@@ -18,3 +19,6 @@ target_link_libraries(mutex1 ${GTEST_BOTH_LIBRARIES})
 
 add_executable(scoped_ptr1 scoped_ptr1.C)
 target_link_libraries(scoped_ptr1 ${GTEST_BOTH_LIBRARIES})
+
+add_executable(scoped_ptr1_bm scoped_ptr1_bm.C)
+target_link_libraries(scoped_ptr1_bm benchmark::benchmark)
