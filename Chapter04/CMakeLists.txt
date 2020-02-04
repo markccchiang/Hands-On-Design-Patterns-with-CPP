@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(list_swap list_swap.C)
 add_executable(member_swap member_swap.C)
+add_executable(nonmember_swap_friend nonmember_swap_friend.C)
 add_executable(nonmember_swap_friend_forward nonmember_swap_friend_forward.C)
 add_executable(nonmember_swap_func nonmember_swap_func.C)
 add_executable(nonmember_swap_none nonmember_swap_none.C)
