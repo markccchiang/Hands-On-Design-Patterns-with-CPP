@@ -24,5 +24,5 @@ class C : public B {
 
 int main() {
     C* c;
-    c.whoami();
+    c->whoami();
 }

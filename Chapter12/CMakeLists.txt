@@ -23,6 +23,3 @@ add_executable(plus_friend_factory_crtp plus_friend_factory_crtp.C)
 add_executable(plus_friend_factory_ns plus_friend_factory_ns.C)
 add_executable(plus_friend_template plus_friend_template.C)
 add_executable(plus_member plus_member.C)
-
-#target_link_libraries(13a_scopeguard_te_benchmark benchmark::benchmark)
-
