@@ -1,0 +1,38 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(Chapter11 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+
+enable_testing()
+
+find_package(GTest REQUIRED)
+find_package(benchmark REQUIRED)
+
+include_directories(${GTEST_INCLUDE_DIRS})
+
+add_executable(01_bad 01_bad.C)
+add_executable(02_trycatch 02_trycatch.C)
+add_executable(02a_trycatch_cleanup 02a_trycatch_cleanup.C)
+add_executable(02b_trycatch_raiicleanup 02b_trycatch_raiicleanup.C)
+add_executable(03_raii 03_raii.C)
+add_executable(04_scopeguard_basic 04_scopeguard_basic.C)
+add_executable(04a_scopeguard_basic_typedef 04a_scopeguard_basic_typedef.C)
+add_executable(05_scopeguard_basic_move 05_scopeguard_basic_move.C)
+add_executable(05a_scopeguard_basic_move_cpp14 05a_scopeguard_basic_move_cpp14.C)
+add_executable(06_scopeguard_obj 06_scopeguard_obj.C)
+add_executable(07_scopeguard_lambda 07_scopeguard_lambda.C)
+add_executable(07a_scopeguard_lambda_cleanup 07a_scopeguard_lambda_cleanup.C)
+add_executable(08_scopeguard_exception 08_scopeguard_exception.C)
+add_executable(09_scopeguard_shielded 09_scopeguard_shielded.C)
+add_executable(10_scopeguard_lambda_cpp17 10_scopeguard_lambda_cpp17.C)
+add_executable(11_scopeguard_on_exit 11_scopeguard_on_exit.C)
+add_executable(11a_scopeguard_on_exit_named 11a_scopeguard_on_exit_named.C)
+add_executable(12_scopeguard_on_fail_cpp17 12_scopeguard_on_fail_cpp17.C)
+add_executable(12a_scopeguard_on_fail 12a_scopeguard_on_fail.C)
+add_executable(12b_scopeguard_on_fail_gcc 12b_scopeguard_on_fail_gcc.C)
+add_executable(13_scopeguard_te 13_scopeguard_te.C)
+
+add_executable(13a_scopeguard_te_benchmark 13a_scopeguard_te_benchmark.C)
+target_link_libraries(13a_scopeguard_te_benchmark benchmark::benchmark)
+
