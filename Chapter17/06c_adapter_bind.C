@@ -16,7 +16,8 @@ struct much_less {
 };
 
 template<typename RandomIt> void sort_much_less(RandomIt first, RandomIt last) {
-    auto f = std::bind(std::sort<RandomIt, much_less>, _1, _2, much_less());
+    //auto f = std::bind(std::sort<RandomIt, much_less>, _1, _2, much_less());
+    auto f = std::bind(std::greater<RandomIt>(), _1, _2);
     f(first, last, much_less());
 }
 

@@ -2,11 +2,12 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <cmath>
 using std::cout;
 using std::endl;
 
 struct much_less {
-    template <typename T> bool operator()(T x, T y) { return x < y && std::abs(x - y) > tolerance*std::max(std::abs(x), std::abs(y)); }
+    template <typename T> bool operator()(T x, T y) { return x < y && std::fabs(x - y) > tolerance*std::max(std::abs(x), std::abs(y)); }
     static constexpr double tolerance = 0.2;
 };
 

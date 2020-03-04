@@ -3,6 +3,7 @@
 #include <vector>
 #include <functional>
 #include <iostream>
+#include <cmath>
 using std::cout;
 using std::endl;
 using namespace std::placeholders; // For _1, _2 etc
@@ -13,12 +14,13 @@ auto f2 = std::bind(f3, _1, _2, 42);
 auto f1 = std::bind(f3, 5, _1, 7);
 
 struct much_less {
-    template <typename T> bool operator()(T x, T y) { return x < y && std::abs(x - y) > tolerance*std::max(std::abs(x), std::abs(y)); }
+    template <typename T> bool operator()(T x, T y) { return x < y && std::fabs(x - y) > tolerance*std::max(std::abs(x), std::abs(y)); }
     static constexpr double tolerance = 0.2;
 };
 
 template<typename RandomIt> void sort_much_less(RandomIt first, RandomIt last) {
-    auto f = std::bind(std::sort<RandomIt, much_less>, _1, _2, much_less());
+    //auto f = std::bind(std::sort<RandomIt, much_less>, _1, _2, much_less());
+    auto f = std::bind(std::greater<RandomIt>(), _1, _2);
     f(first, last, much_less());
 }
 
