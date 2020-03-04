@@ -149,10 +149,10 @@ class SmartPtr : private DeletionPolicy,
     operator U*() { return p_; }
     template <typename U = T, typename V = std::enable_if_t<ConversionPolicy::implicit_conv, U>>
     operator const U*() const { return p_; }
-    template <typename U = T, typename V = std::enable_if_t<ConversionPolicy::explicit_conv, U>>
-    explicit operator U*() { return p_; }
-    template <typename U = T, typename V = std::enable_if_t<ConversionPolicy::explicit_conv, U>>
-    explicit operator const U*() const { return p_; }
+    //template <typename U = T, typename V = std::enable_if_t<ConversionPolicy::explicit_conv, U>>
+    //explicit operator U*() { return p_; }
+    //template <typename U = T, typename V = std::enable_if_t<ConversionPolicy::explicit_conv, U>>
+    //explicit operator const U*() const { return p_; }
     void release() { p_ = NULL; }
     T* operator->() { return p_; }
     const T* operator->() const { return p_; }
@@ -166,9 +166,9 @@ int main() {
     {
         SmartPtr<int> p(new int(42));
         std::cout << *p << std::endl;
-        int* p1(p);
+        //int* p1(p);
         //int* p2 = p; // Does not compile
-        std::cout << *p1 << std::endl;
+        //std::cout << *p1 << std::endl;
     }
 
     {

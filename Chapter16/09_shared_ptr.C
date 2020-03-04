@@ -151,11 +151,12 @@ class SmartPtr : private DeletionPolicy,
     const T* operator->() const { return p_; }
     T& operator*() { return *p_; }
     const T& operator*() const { return *p_; }
+    T* p_;
     private:
     // Either way works.
     //friend class ConversionPolicy<SmartPtr<T, DeletionPolicy, CopyMovePolicy, ConversionPolicy>, T>;
-    template<typename, typename> friend class ConversionPolicy;
-    T* p_;
+    //template<typename, typename> friend class ConversionPolicy;
+    //T* p_;
 };
 
 int main() {

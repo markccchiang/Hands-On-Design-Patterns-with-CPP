@@ -161,9 +161,10 @@ class SmartPtr : private DeletionPolicy,
     const T& operator*() const { return *p_; }
 
     template <typename U> using rebind_type = SmartPtr<U, typename DeletionPolicy::template rebind_type<U>, CopyMovePolicy, ConversionPolicy>;
-    private:
-    template<typename, typename> friend class ConversionPolicy;
     T* p_;
+    private:
+    //template<typename, typename> friend class ConversionPolicy;
+    //T* p_;
 };
 
 int main() {
