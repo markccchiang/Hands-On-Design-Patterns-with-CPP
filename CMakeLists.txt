@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
+project(Hands-On-Design-Patterns-with-CPP LANGUAGES CXX)
+
 add_subdirectory(Chapter04)
 add_subdirectory(Chapter05)
 add_subdirectory(Chapter06)
